@@ -1,5 +1,5 @@
 /**
- * fastLiveFilter jQuery plugin 1.0.0
+ * fastLiveFilter jQuery plugin 1.0.1
  * 
  * Copyright (c) 2011, Anthony Bush
  * License: <http://www.opensource.org/licenses/bsd-license.php>
@@ -30,7 +30,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 		var numShown = 0;
 		for (i = 0; i < len; i++) {
 			li = lis[i];
-			if ((li.textContent || "").toLowerCase().indexOf(filter) >= 0) {
+			if ((li.textContent || li.innerText || "").toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
