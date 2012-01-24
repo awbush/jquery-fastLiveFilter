@@ -1,3 +1,7 @@
+v1.0.2 / 2012-01-24:
+
+- Add package.json for new/upcoming plugins.jquery.com
+
 v1.0.1 / 2011-12-07:
 
 - Add support for Win/IE (fixes #3)

@@ -1,0 +1,29 @@
+{
+	"name": "fast-live-filter",
+	"version": "1.0.2",
+	"title": "jQuery.fastLiveFilter()",
+	"author": {
+		"name": "Anthony Bush",
+		"url": "https://github.com/awbush"
+	},
+	"licenses": [
+		{
+			"type": "BSD 2-Clause",
+			"url": "LICENSE.txt"
+		}
+	],
+	"dependencies": {
+		"jquery": "1.x.x"
+	},
+	"description": "A live filter plugin for jQuery built for speed and ease of use",
+	"keywords": [
+		"live",
+		"filter"
+	],
+	"homepage": "http://anthonybush.com/projects/jquery_fast_live_filter/",
+	"docs": "http://anthonybush.com/projects/jquery_fast_live_filter/",
+	"demo": "http://anthonybush.com/projects/jquery_fast_live_filter/demo/",
+	"files": [
+		"jquery.fastLiveFilter.js"
+	]
+}
