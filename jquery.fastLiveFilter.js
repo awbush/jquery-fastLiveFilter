@@ -29,7 +29,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 		var filter = input.val().toLowerCase();
 		var li;
 		var numShown = 0;
-		for (i = 0; i < len; i++) {
+		for (var i = 0; i < len; i++) {
 			li = lis[i];
 			if ((li.textContent || li.innerText || "").toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
