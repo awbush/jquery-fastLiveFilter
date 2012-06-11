@@ -1,3 +1,8 @@
+v1.0.3 / 2012-06-11:
+
+- Make options arg optional (fixes #4)
+- Fix accidental global
+
 v1.0.2 / 2012-01-24:
 
 - Add package.json for new/upcoming plugins.jquery.com
