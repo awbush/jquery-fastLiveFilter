@@ -8,6 +8,7 @@
 
 jQuery.fn.fastLiveFilter = function(list, options) {
 	// Options: input, list, timeout, callback
+	options = options || {};
 	list = jQuery(list);
 	var input = this;
 	var timeout = options.timeout || 0;
