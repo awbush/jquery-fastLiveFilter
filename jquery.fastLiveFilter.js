@@ -27,11 +27,12 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	input.change(function() {
 		// var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
-		var li;
+		var li, txt;
 		var numShown = 0;
 		for (var i = 0; i < len; i++) {
 			li = lis[i];
-			if ((li.textContent || li.innerText || "").toLowerCase().indexOf(filter) >= 0) {
+			txt = options.subTxt ? $(li).find(options.subTxt).text() || "" : (li.textContent || li.innerText || "");
+			if (txt.toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
