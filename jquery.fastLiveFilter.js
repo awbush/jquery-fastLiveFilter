@@ -27,11 +27,22 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	input.change(function() {
 		// var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
+        var srchTerms   = $.trim (filter).split (/\s+/);
 		var li;
 		var numShown = 0;
 		for (var i = 0; i < len; i++) {
 			li = lis[i];
-			if ((li.textContent || li.innerText || "").toLowerCase().indexOf(filter) >= 0) {
+			
+			//support multiple search terms
+			var isMatchAll = true;
+			for (var k in srchTerms) {
+				if ((li.textContent || li.innerText || "").toLowerCase().indexOf(srchTerms[k]) < 0) {
+					isMatchAll = false;
+					break;
+				}
+			};
+			
+			if ( isMatchAll ) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
