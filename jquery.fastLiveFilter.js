@@ -27,7 +27,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	input.change(function() {
 		// var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
-        var srchTerms   = $.trim (filter).split (/\s+/);
+		var srchTerms   = $.trim (filter).split (/\s+/);
 		var li;
 		var numShown = 0;
 		for (var i = 0; i < len; i++) {
