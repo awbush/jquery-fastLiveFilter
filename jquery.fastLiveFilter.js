@@ -26,7 +26,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	
 	input.change(function() {
-		 //var startTime = new Date().getTime();
+		//var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
 		var li;
 		var numShown = 0;
@@ -50,8 +50,8 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			}
 		}
 		callback(numShown);
-		 //var endTime = new Date().getTime();
-		 //console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
+		//var endTime = new Date().getTime();
+		//console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
 		return false;
 	}).keydown(function() {
 		// TODO: one point of improvement could be in here: currently the change event is
