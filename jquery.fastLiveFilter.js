@@ -31,7 +31,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 		var numShown = 0;
 		for (var i = 0; i < len; i++) {
 			li = lis[i];
-			if (($(li).children(":not(." + ignore + ")").text() || "").toLowerCase().indexOf(filter) >= 0) {
+			if (($(li).contents(":not(." + ignore + ")").text() || "").toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
