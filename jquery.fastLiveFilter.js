@@ -1,5 +1,5 @@
 /**
- * fastLiveFilter jQuery plugin 1.0.3
+ * fastLiveFilter jQuery plugin 1.1.0
  * 
  * Copyright (c) 2011, Anthony Bush
  * License: <http://www.opensource.org/licenses/bsd-license.php>
@@ -13,7 +13,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var input = this;
 	var timeout = options.timeout || 0;
 	var callback = options.callback || function() {};
-	
+	var ignore = options.ignore || 'filter-ignore';
 	var keyTimeout;
 	
 	// NOTE: because we cache lis & len here, users would need to re-init the plugin
@@ -31,7 +31,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 		var numShown = 0;
 		for (var i = 0; i < len; i++) {
 			li = lis[i];
-			if ((li.textContent || li.innerText || "").toLowerCase().indexOf(filter) >= 0) {
+			if (($(li).children(":not(." + ignore + ")").text() || "").toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
