@@ -34,7 +34,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			li = lis[i];
 			innerText = !options.selector ? 
 				(li.textContent || li.innerText || "") : 
-				$(li).addBack().find(options.selector).text();
+				$(li).find(options.selector).text();
 			
 			if (innerText.toLowerCase().indexOf(filter) >= 0) {
 				if (li.style.display == "none") {
