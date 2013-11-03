@@ -14,6 +14,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lastFilter = '';
 	var timeout = options.timeout || 0;
 	var callback = options.callback || function() {};
+	var markFiltered = options.markFiltered || 0;
 	
 	var keyTimeout;
 	
@@ -26,7 +27,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	
 	input.change(function() {
-		// var startTime = new Date().getTime();
+		//var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
 		var li, innerText;
 		var numShown = 0;
@@ -40,16 +41,22 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 				if (li.style.display == "none") {
 					li.style.display = oldDisplay;
 				}
+				if (markFiltered) {
+					jQuery(li).attr('data-fastlivefilter-shown', '1');
+				}
 				numShown++;
 			} else {
 				if (li.style.display != "none") {
 					li.style.display = "none";
 				}
+				if (markFiltered) {
+					jQuery(li).attr('data-fastlivefilter-shown', '0');
+				}
 			}
 		}
 		callback(numShown);
-		// var endTime = new Date().getTime();
-		// console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
+		//var endTime = new Date().getTime();
+		//console.log('Search for ' + filter + ' took: ' + (endTime - startTime) + ' (' + numShown + ' results)');
 		return false;
 	}).keydown(function() {
 		clearTimeout(keyTimeout);
