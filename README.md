@@ -37,6 +37,7 @@ Available options:
 - timeout: How many milliseconds to wait after keydown before filtering the list.  Default is 0.
 - callback: A callback method which will be given the number of items left in the list.
 - selector: By default, the plugin will match the filter against the text of the `li`. If specifed, the selector will be applied to the `li` and the resulting text will be used instead. **WARNING:** Use of complex selectors may reduce performance significantly, especially in large lists!
+- filterAttribute: An attribute of the matched element (li or otherwise) to use for filtering the item, instead of using the visible text.
 
 Example:
 
