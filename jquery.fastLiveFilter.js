@@ -23,7 +23,6 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lis = list.children();
 	var len = lis.length;
 	var oldDisplay = len > 0 ? lis[0].style.display : "block";
-	callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	
 	input.change(function() {
 		// var startTime = new Date().getTime();
@@ -59,5 +58,8 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			input.change();
 		}, timeout);
 	});
+	
+	input.triggerHandler('keydown'); // do a one-time initialization to make sure everything's in sync
+	
 	return this; // maintain jQuery chainability
 }
