@@ -7,6 +7,9 @@
  **/
 
 jQuery.fn.fastLiveFilter = function(list, options) {
+	
+	'use strict';
+	
 	// Options: input, list, timeout, callback
 	options = options || {};
 	list = jQuery(list);
@@ -35,14 +38,16 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			innerText = !options.selector ? 
 				(li.textContent || li.innerText || "") : 
 				$(li).find(options.selector).text();
+				
+			innerText = $.trim( innerText );
 			
 			if (innerText.toLowerCase().indexOf(filter) >= 0) {
-				if (li.style.display == "none") {
+				if (li.style.display === "none") {
 					li.style.display = oldDisplay;
 				}
 				numShown++;
 			} else {
-				if (li.style.display != "none") {
+				if (li.style.display !== "none") {
 					li.style.display = "none";
 				}
 			}
