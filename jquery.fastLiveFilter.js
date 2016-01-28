@@ -23,7 +23,11 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lis = list.children();
 	var len = lis.length;
 	var oldDisplay = len > 0 ? lis[0].style.display : "block";
-	if(hideOnInit) { list[i].each(function() { this.style.display = "none"; }); }
+	if(hideOnInit) {
+		lis.each(function() {
+			this.style.display = "none";
+		});
+	}
 	callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	
 	
