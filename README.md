@@ -38,6 +38,7 @@ Available options:
 - callback: A callback method which will be given the number of items left in the list.
 - selector: By default, the plugin will match the filter against the text of the `li`. If specifed, the selector will be applied to the `li` and the resulting text will be used instead. **WARNING:** Use of complex selectors may reduce performance significantly, especially in large lists!
 - hideOnInit: true/false; Hides all the list items after initialization. Default: false
+- hideIfEmpty: true/false; Hides all list items if the search field is empty. Default: false
 
 Example:
 

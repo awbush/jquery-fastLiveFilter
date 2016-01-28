@@ -15,6 +15,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var timeout = options.timeout || 0;
 	var callback = options.callback || function() {};
 	var hideOnInit = options.hideOnInit || false;
+	var hideIfEmpty = options.hideIfEmpty || false;
 	var keyTimeout;
 	
 	// NOTE: because we cache lis & len here, users would need to re-init the plugin
@@ -33,23 +34,29 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	
 	input.change(function() {
 		// var startTime = new Date().getTime();
+		var numShown = 0;
 		var filter = input.val().toLowerCase();
 		var li, innerText;
-		var numShown = 0;
-		for (var i = 0; i < len; i++) {
-			li = lis[i];
-			innerText = !options.selector ? 
-				(li.textContent || li.innerText || "") : 
-				$(li).find(options.selector).text();
-			
-			if (innerText.toLowerCase().indexOf(filter) >= 0) {
-				if (li.style.display == "none") {
-					li.style.display = oldDisplay;
-				}
-				numShown++;
-			} else {
-				if (li.style.display != "none") {
-					li.style.display = "none";
+		if (hideIfEmpty && !$.trim(this.value).length) {
+			lis.each(function() {
+				this.style.display = "none";
+			});
+		} else {
+			for (var i = 0; i < len; i++) {
+				li = lis[i];
+				innerText = !options.selector ? 
+					(li.textContent || li.innerText || "") : 
+					$(li).find(options.selector).text();
+				
+				if (innerText.toLowerCase().indexOf(filter) >= 0) {
+					if (li.style.display == "none") {
+						li.style.display = oldDisplay;
+					}
+					numShown++;
+				} else {
+					if (li.style.display != "none") {
+						li.style.display = "none";
+					}
 				}
 			}
 		}
