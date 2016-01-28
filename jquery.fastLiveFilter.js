@@ -29,8 +29,8 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 			this.style.display = "none";
 		});
 	}
-	if (hideIfEmpty && !$.trim(this.value).length) {
-		callback(0); // return the correct value of 0 if the search field is empty upon init
+	if (hideOnInit || (hideIfEmpty && !$.trim(this.value).length)) {
+		callback(0); // return the correct value of 0 if the search field is empty upon init or hideOnInit is true
 	} else {
 		callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	}
