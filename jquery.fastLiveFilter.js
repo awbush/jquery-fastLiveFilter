@@ -14,7 +14,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lastFilter = '';
 	var timeout = options.timeout || 0;
 	var callback = options.callback || function() {};
-	
+	var hideOnInit = options.hideOnInit || false;
 	var keyTimeout;
 	
 	// NOTE: because we cache lis & len here, users would need to re-init the plugin
@@ -23,7 +23,9 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lis = list.children();
 	var len = lis.length;
 	var oldDisplay = len > 0 ? lis[0].style.display : "block";
+	if(hideOnInit) { list[i].each(function() { this.style.display = "none"; }); }
 	callback(len); // do a one-time callback on initialization to make sure everything's in sync
+	
 	
 	input.change(function() {
 		// var startTime = new Date().getTime();
