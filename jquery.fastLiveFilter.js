@@ -24,13 +24,16 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var lis = list.children();
 	var len = lis.length;
 	var oldDisplay = len > 0 ? lis[0].style.display : "block";
-	if(hideOnInit) {
+	if (hideOnInit) {
 		lis.each(function() {
 			this.style.display = "none";
 		});
 	}
-	callback(len); // do a one-time callback on initialization to make sure everything's in sync
-	
+	if (hideIfEmpty && !$.trim(this.value).length) {
+		callback(0); // return the correct value of 0 if the search field is empty upon init
+	} else {
+		callback(len); // do a one-time callback on initialization to make sure everything's in sync
+	}
 	
 	input.change(function() {
 		// var startTime = new Date().getTime();
@@ -67,7 +70,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	}).keydown(function() {
 		clearTimeout(keyTimeout);
 		keyTimeout = setTimeout(function() {
-			if( input.val() === lastFilter ) return;
+			if (input.val() === lastFilter) return;
 			lastFilter = input.val();
 			input.change();
 		}, timeout);
