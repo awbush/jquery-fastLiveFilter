@@ -33,7 +33,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 		for (var i = 0; i < len; i++) {
 			li = lis[i];
 			innerText = !options.selector ? 
-				(li.textContent || li.innerText || "") : 
+				(li.dataset.text || li.textContent || li.innerText || "") : 
 				$(li).find(options.selector).text();
 			
 			if (innerText.toLowerCase().indexOf(filter) >= 0) {
