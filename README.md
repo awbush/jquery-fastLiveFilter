@@ -24,6 +24,7 @@ The above would work with this HTML:
 		<li>Two</li>
 		<li>Three</li>
 	</ul>
+**Note**: in case there is a rich content inside li items, attribute **data-text** can be set for each item and it's used for filtering as the most priority.
 
 Options
 -------
