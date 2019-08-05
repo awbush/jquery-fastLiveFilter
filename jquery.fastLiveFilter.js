@@ -25,7 +25,7 @@ jQuery.fn.fastLiveFilter = function(list, options) {
 	var oldDisplay = len > 0 ? lis[0].style.display : "block";
 	callback(len); // do a one-time callback on initialization to make sure everything's in sync
 	
-	input.change(function() {
+	input.on( 'change search', function() {
 		// var startTime = new Date().getTime();
 		var filter = input.val().toLowerCase();
 		var li, innerText;
